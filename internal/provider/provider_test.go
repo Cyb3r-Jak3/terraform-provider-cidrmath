@@ -6,5 +6,5 @@ import (
 )
 
 var testAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"cidrmath": providerserver.NewProtocol6WithError(New()),
+	"cidrmath": providerserver.NewProtocol6WithError(New("testing", "2023-01-01", "abc123")()),
 }

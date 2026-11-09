@@ -53,6 +53,12 @@ func (p *CidrMathProvider) Functions(_ context.Context) []func() function.Functi
 }
 
 // New returns a new provider.Provider instance for use with providerserver.Serve.
-func New() provider.Provider {
-	return &CidrMathProvider{}
+func New(version, date, commit string) func() provider.Provider {
+	return func() provider.Provider {
+		return &CidrMathProvider{
+			version: version,
+			date:    date,
+			commit:  commit,
+		}
+	}
 }

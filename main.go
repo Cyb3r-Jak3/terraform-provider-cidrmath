@@ -15,7 +15,7 @@ var (
 )
 
 func main() {
-	err := providerserver.Serve(context.Background(), provider.New, providerserver.ServeOpts{
+	err := providerserver.Serve(context.Background(), provider.New(version, commitDate, commit), providerserver.ServeOpts{
 		Address: "registry.terraform.io/Cyb3r-Jak3/cidrmath",
 	})
 	if err != nil {

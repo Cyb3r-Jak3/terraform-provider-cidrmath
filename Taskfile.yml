@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+
+tasks:
+  snapshot:
+    desc: Build a snapshot release with GoReleaser
+    cmds:
+      - goreleaser --snapshot --clean --skip=publish,sign
+  lint:
+    desc: Run golangci-lint
+    cmds:
+      - golangci-lint run
+  test:
+    desc: Run tests
+    cmds:
+      - gotestsum --format testname --junitfile junit.xml -- -coverprofile=cover.out ./...
+  acctest:
+    desc: Run acceptance tests
+    env:
+      TF_ACC: 1
+    cmds:
+      - gotestsum --format testname --junitfile junit.xml -- -coverprofile=cover.out ./...

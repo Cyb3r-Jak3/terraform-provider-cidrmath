@@ -66,7 +66,3 @@ blobs:
     region: auto
     endpoint: https://8be772befd147a8df540aae0fa15c047.r2.cloudflarestorage.com
     bucket: public-files
-
-
-sboms:
-  - artifacts: archive
